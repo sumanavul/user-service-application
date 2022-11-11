@@ -22,4 +22,15 @@ public class UserService {
             .findFirst()
             .orElse(null);
   }
+  public User updateUser(int id, User user){
+    User prevUser = getUser(id);
+    prevUser.setName(user.getName());
+    prevUser.setMobileNumber(user.getMobileNumber());
+    prevUser.setEmail(user.getEmail());
+    return prevUser;
+  }
+  public void deleteUser(int id){
+    User userToBeDeleted = getUser(id);
+    users.remove(userToBeDeleted);
+  }
 }

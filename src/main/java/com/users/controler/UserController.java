@@ -27,5 +27,15 @@ public class UserController {
     public HttpResponse<User> getUser(@PathVariable int id){
      return HttpResponse.ok(userService.getUser(id));
     }
+    @Put("/{id}")
+    public HttpResponse<User> updateUser(@PathVariable int id, @Body User user){
+        return HttpResponse.ok(userService.updateUser(id,user));
+
+    }
+    @Delete("/{id}")
+    public HttpResponse<Void> deleteUser(@PathVariable int id){
+        userService.deleteUser(id);
+        return HttpResponse.ok();
+    }
 
 }
